@@ -2,20 +2,23 @@ function solve(input) {
     let result = {};
 
     for (const line of input) {
-        let [town, population] = line.split(' <-> ');
-        addPropIfMissing(result, town);
-        result[town] += +population;
-    }
+        let [town, product, salesInfo] = line.split(' -> ');
+        let [amountOfSales, priceForOneUnit] = salesInfo.split(' : ');
+        amountOfSales = +amountOfSales;
+        priceForOneUnit = +priceForOneUnit;
 
-    for (const key of Object.keys(result)) {
-        console.log(`${key} : ${result[key]}`);
-    }
-
-    function addPropIfMissing(obj, prop){
-        if (!obj.hasOwnProperty(prop)) {
-            obj[prop] = 0;
+        if (!result.hasOwnProperty(town)) {
+            result[town] = {};
         }
-        return obj;
+
+        result[town][product] = amountOfSales * priceForOneUnit;
+    }
+
+    for (const key in result) {
+        console.log(`Town - ${key}`);
+        for (const product in result[key]) {
+            console.log(`$$$${product} : ${result[key][product]}`);
+        }
     }
 }
 
@@ -26,4 +29,4 @@ solve([
     'Montana -> Portokals -> 200000 : 1',
     'Montana -> Qgodas -> 20000 : 0.2',
     'Montana -> Chereshas -> 1000 : 0.3'
-    ]);
+]);
