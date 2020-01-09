@@ -65,3 +65,11 @@ class CheckingAccount {
         }
     }
 }
+
+let acc = new CheckingAccount('1314', 'ivan@some.com', 'Ivan', 'Petrov')
+
+let acc1 = new CheckingAccount('131455', 'ivan@', 'Ivan', 'Petrov')
+
+let acc2 = new CheckingAccount('131455', 'ivan@some.com', 'I', 'Petrov')
+
+let acc3 = new CheckingAccount('131455', 'ivan@some.com', 'I', 'Petrov')
