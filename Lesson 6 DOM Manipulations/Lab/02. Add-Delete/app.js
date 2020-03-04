@@ -20,5 +20,11 @@ function addItem() {
 
     function deleteElement(e) {
         this.removeChild(e.target.parentElement);
-    }
+    }    
 }
+
+function removeAll() {
+    const items = document.getElementById('items');
+    items.textContent = '';
+}
+
