@@ -11,10 +11,10 @@ function solve([speed, area]) {
     if (difference > 0 && difference <= 20) {
         console.log('speeding');
 
-    } else if (difference > 20 && difference <= 40) {
+    } else if (difference <= 40) {
         console.log('excessive speeding');
 
-    } else if (difference > 40) {
+    } else {
         console.log('reckless driving');
     }
 
