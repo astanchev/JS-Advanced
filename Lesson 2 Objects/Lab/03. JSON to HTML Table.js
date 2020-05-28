@@ -16,7 +16,7 @@ function fromJSONToHTMLTable(input) {
     let ident = '   ';
     let table = `<table>\n${ident}<tr>`;
     let parsedObjects = JSON.parse(input);
-    let keys = Object.keys(parsedObjects[0]);
+    let keys =Array.from(new Set(parsedObjects.map(i => Object.keys(i)).flat()));
 
     // Set Headers
     for (const key of keys) {
