@@ -41,7 +41,7 @@ let result = (function () {
     }
 
     return { Suits, Card };
-})();
+}());
 
 let Card = result.Card;
 let Suits = result.Suits;
