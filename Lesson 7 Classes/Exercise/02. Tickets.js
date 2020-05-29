@@ -11,7 +11,7 @@ function solve(inputTickets, sortCriteria) {
 
     for (const arg of inputTickets) {
         let [destination, price, status] = arg.split('|');
-        price = price;
+        price = +price;
 
         let ticket = new Ticket(destination, price, status);
 
@@ -19,7 +19,7 @@ function solve(inputTickets, sortCriteria) {
     }
 
     result = result
-        .filter(Boolean)
+        //.filter(Boolean)
         .sort((a, b) => {
             if (typeof(a[sortCriteria]) === 'number') {
                 return a[sortCriteria] - b[sortCriteria];
