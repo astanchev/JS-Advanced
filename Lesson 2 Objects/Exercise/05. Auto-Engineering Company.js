@@ -20,10 +20,9 @@ function solve(input) {
 
     for (const brand in catalogue) {
         console.log(brand);
-        let models = Array.from(catalogue[brand].entries());
 
-        for (const model of models) {
-            console.log(`###${model[0]} -> ${model[1]}`);
+        for (const [model, quantity]  of catalogue[brand]) {
+            console.log(`###${model} -> ${quantity}`);
         }
     }
 }
