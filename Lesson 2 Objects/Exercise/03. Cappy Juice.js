@@ -1,34 +1,31 @@
 function solve(input) {
-    let juices = {};
-    let bottles = new Map();
+    const result = new Map();
+    const juices = {};
 
     for (const line of input) {
         let [juice, quantity] = line.split(' => ');
-        addPropIfMissing(juices, juice);
-        juices[juice] += +quantity;
+        quantity = +quantity;
 
-        if (juices[juice] >= 1000) {
-            let currentBottles = parseInt(juices[juice] / 1000);
-            juices[juice] -= currentBottles * 1000;
+        if (!juices.hasOwnProperty(juice)) {
+            juices[juice] = 0;
+        }
 
-            if (!bottles.has(juice)) {
-                bottles.set(juice, 0);
+        juices[juice] += quantity;
+
+        let bottles = Math.floor(juices[juice] / 1000);
+
+        if (bottles > 0) {
+            if (!result.has(juice)) {
+                result.set(juice, 0);
             }
 
-            let newBottles = bottles.get(juice) + currentBottles;
-            bottles.set(juice, newBottles);
+            result.set(juice, result.get(juice) + bottles);
+            juices[juice] -= bottles * 1000;
         }
     }
 
-    for (const [juice, count] of Array.from(bottles.entries())) {
-        console.log(`${juice} => ${count}`);
-    }
-
-    function addPropIfMissing(obj, prop){
-        if (!obj.hasOwnProperty(prop)) {
-            obj[prop] = 0;
-        }
-        return obj;
+    for (const juice of result) {
+        console.log(`${juice[0]} => ${juice[1]}`);
     }
 }
 
