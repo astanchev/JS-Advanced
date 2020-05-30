@@ -1,10 +1,11 @@
 function solve(input) {
-    let result = new Set(input);
-    result = Array.from(result
-        .keys())
-        .sort((a, b) => a.length - b.length || a.localeCompare(b));
+    const result = Array.from(new Set(input));
 
-    console.log(result.join('\n'));
+    console.log(result
+        .sort((a, b) =>
+            a.length - b.length ||
+            a.localeCompare(b))
+        .join('\n'));
 }
 
 solve([
