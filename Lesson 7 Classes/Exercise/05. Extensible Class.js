@@ -7,7 +7,8 @@ const Extensible = (function () {
         }
 
         extend(template) {
-            Object.entries(template)
+            Object
+                .entries(template)
                 .forEach(([key, value]) => {
                     //if the template is function
                     if (typeof (value) === 'function') {
@@ -19,8 +20,8 @@ const Extensible = (function () {
                     }
                 });
         }
-    }
-}())
+    };
+}());
 
 let obj1 = new Extensible();
 let obj2 = new Extensible();
@@ -31,4 +32,4 @@ console.log(obj3.id);
 obj1.extend({
     extensionMethod: function () {},
     extensionProperty: 'someString'
-  }  )
+  }  );

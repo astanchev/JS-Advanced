@@ -19,24 +19,24 @@ let result = (function () {
             return this._face;
         }
 
-        set face(face) {
-            if (validateFace(face) === -1) {
+        set face(value) {
+            if (validateFace(value) === -1) {
                 throw new Error('invalid face');
             }
 
-            this._face = face;
+            this._face = value;
         }
 
         get suit() {
             return this._suit;
         }
 
-        set suit(suit) {
-            if (validateSuit(suit) === false) {
+        set suit(value) {
+            if (validateSuit(value) === false) {
                 throw new Error('invalid suit');
             }
 
-            this._suit = suit;
+            this._suit = value;
         }
     }
 
