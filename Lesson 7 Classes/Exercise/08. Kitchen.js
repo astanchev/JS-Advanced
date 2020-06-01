@@ -36,6 +36,7 @@ class Kitchen {
             return `The ${meal} is already in our menu, try something different.`;
         }
 
+        //Some of needed products has space in them, so we save whole string - Tomato sauce
         this.menu[meal] = { products: neededProducts, price };
         return `Great idea! Now with the ${meal} we have ${Object.keys(this.menu).length} meals in the menu, other ideas?`;
     }
@@ -53,10 +54,11 @@ class Kitchen {
     makeTheOrder(meal) {
 
         if (!this.menu.hasOwnProperty(meal)) {
-            return `There is not ${meal} yet in our menu, do you want to order something else?`
+            return `There is not ${meal} yet in our menu, do you want to order something else?`;
         }
 
         for (const element of this.menu[meal].products) {
+            //Some of needed products has space in them, so we save whole string - Tomato sauce
             const productName = element.split(/\s+/).slice(0, -1).join(' ');
             const quantityNeeded = Number(element.split(/\s+/).slice(-1).join(' '));
 
@@ -73,7 +75,7 @@ class Kitchen {
 
         let price = Number(this.menu[meal].price);
         this.budget += price;
-        return `Your order (${meal}) will be completed in the next 30 minutes and will cost you ${price}.`
+        return `Your order (${meal}) will be completed in the next 30 minutes and will cost you ${price}.`;
     }
 }
 
