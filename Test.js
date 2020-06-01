@@ -1,6 +1,5 @@
 function solve(input) {
 
-    
 }
 
 solve();
