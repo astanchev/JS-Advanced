@@ -9,7 +9,8 @@ function solve() {
     const expressionOutput = document.getElementById('expressionOutput');
     const resultOutput = document.getElementById('resultOutput');
 
-    const buttons = Array.from(document.getElementsByTagName('button')).filter(b => b.value !== 'Clear' && b.value !== '=');
+    const buttons = Array.from(document.getElementsByTagName('button'))
+                            .filter(b => b.value !== 'Clear' && b.value !== '=');
     const clear = document.querySelector('button[value="Clear"]');
     const equal = document.querySelector('button[value="="]');
 
@@ -21,7 +22,10 @@ function solve() {
     equal.addEventListener('click', displayData);
 
     function showData() {
-        if (this.value === '+' || this.value === '-' || this.value === '*' || this.value === '/') {
+        if (this.value === '+' || 
+            this.value === '-' || 
+            this.value === '*' || 
+            this.value === '/') {
             expressionOutput.textContent += ` ${this.value} `;
         } else {
             expressionOutput.textContent += this.value;
@@ -36,12 +40,10 @@ function solve() {
         const isReady = expressionOutput.textContent.match(pattern);
         
         if (isReady) {
-            const [leftOperand, operator, rightOperand] = isReady[0].split(' ');
-            
-            resultOutput.textContent = compute[operator](+leftOperand, +rightOperand);
+            const [leftOperand, operator, rightOperand] = isReady[0].split(' ');            
+            resultOutput.textContent = compute[operator](Number(leftOperand), Number(rightOperand));
         } else if (!isReady) {
             resultOutput.textContent = 'NaN';
         }
     }
-
 }
