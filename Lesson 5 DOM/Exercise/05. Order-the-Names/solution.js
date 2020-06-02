@@ -2,7 +2,9 @@ function solve() {
     const input = document.querySelector('input');
     const list = document.querySelectorAll('li');
 
-    document.querySelector('button').addEventListener('click', registerUser);
+    document
+        .querySelector('button')
+        .addEventListener('click', registerUser);
 
     function registerUser() {
 
@@ -12,7 +14,10 @@ function solve() {
 
         const name = input.value[0].toUpperCase() + input.value.slice(1).toLowerCase();
         const position = name.charCodeAt(0) - 65;
-        const people = list[position].textContent.split(', ').filter(Boolean)/*=== .filter(p => p !=== '')*/;
+        const people = list[position].textContent
+                                    .split(', ')
+                                    .filter(Boolean)
+                            /*=== .filter(p => p !=== '')*/;
 
         people.push(name);
         list[position].textContent = people.join(', ');
