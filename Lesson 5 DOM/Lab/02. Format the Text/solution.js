@@ -1,26 +1,24 @@
 function solve() {
-  let input = document.getElementById('input');
-  let output = document.getElementById('output');
-
-  let sentences = input
+  const sentences = document
+    .getElementById('input')
     .textContent
     .split('.')
-    .filter(s => s !== '')
-    .map(s => s + '\.');
+    .filter(Boolean);
 
-  while (sentences.length !== 0) {
-    let p = document.createElement('p');
-    let text = '';
+  const output = document
+  .getElementById('output');
+
+  while (sentences.length != 0) {
+    const p = document.createElement('p');
+    p.textContent = '';
 
     for (let i = 0; i < 3; i++) {
-      if (sentences.length === 0) {
+      if (sentences.length == 0) {
         break;
       }
-
-      text += sentences.shift();
+      p.textContent += sentences.shift() + '.';
     }
 
-    p.textContent += text;
     output.appendChild(p);
   }
 }
