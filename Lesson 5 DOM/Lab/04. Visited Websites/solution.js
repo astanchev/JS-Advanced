@@ -14,5 +14,4 @@ function solve() {
     let [firstWord, count, lastWord] = pText.textContent.split(' ');
     pText.textContent = `${firstWord} ${++count} ${lastWord}`;
   }
-
 }
