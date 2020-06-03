@@ -26,7 +26,7 @@ function solve() {
       addBtns.forEach(b => b.firstElementChild.setAttribute('disabled', ''));
       checkOutBtn.setAttribute('disabled', '');
 
-      //Or other ption is:
+      //Or other option is:
       // addBtns.forEach(b => b.removeEventListener('click', addToCart));
       // checkOutBtn.removeEventListener('click', checkOut);
    }
