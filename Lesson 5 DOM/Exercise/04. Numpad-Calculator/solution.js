@@ -19,7 +19,7 @@ function solve() {
     }
 
     clear.addEventListener('click', clearData);
-    equal.addEventListener('click', displayData);
+    equal.addEventListener('click', displayResult);
 
     function showData() {
         if (this.value === '+' || 
@@ -36,7 +36,7 @@ function solve() {
         [expressionOutput.textContent, resultOutput.textContent] = ['', ''];
     }
 
-    function displayData() {
+    function displayResult() {
         const isReady = expressionOutput.textContent.match(pattern);
         
         if (isReady) {
