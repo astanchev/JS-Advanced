@@ -38,3 +38,43 @@ function solve() {
     }
   }
 }
+
+function solve2() {
+  const sections = document.querySelectorAll('section');
+  const result = document.querySelector('#results > li > h1');
+  const answers = ['2', '4', '2'];
+  const divs = [...document.querySelectorAll('div.answer-wrap')];
+  let finalScore = 0;
+  let selectedSection = 0;
+
+  for (const div of divs) {
+    div.addEventListener('click', answer);
+  }
+
+  function answer() {
+    if (selectedSection < 3) {
+
+      const answer = this.parentElement.getAttribute('data-quizindex');
+      if (answer === answers[selectedSection]) {
+        finalScore++;
+      }
+      sections[selectedSection].classList.toggle('hidden');
+      sections[selectedSection].style.display = 'none';
+      selectedSection++;
+
+      if (selectedSection < 3) {
+        sections[selectedSection].classList.toggle('hidden');
+        sections[selectedSection].style.display = 'block';
+      } else {
+
+        document.querySelector('#results').style.display = 'block';
+
+        if (finalScore === 3) {
+          result.textContent = 'You are recognized as top JavaScript fan!';
+        } else {
+          result.textContent = `You have ${finalScore} right answers`;
+        }
+      }
+    }
+  }
+}
