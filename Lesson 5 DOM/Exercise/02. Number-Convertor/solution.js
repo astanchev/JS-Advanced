@@ -20,13 +20,9 @@ function solve() {
     function calculate() {
         let number = document.getElementById('input').value;
         let choice = document.getElementById('selectMenuTo').value;
-
         let result = document.getElementById('result');
-        if (choice === 'binary') {
-            result.value = (+number).toString(2);
-        } else {
-            result.value = (+number).toString(16).toUpperCase();
-        }
-    }
+        const system = choice === 'binary' ? 2 : 16;
 
+        result.value = Number(number).toString(system).toUpperCase();
+    }
 }
