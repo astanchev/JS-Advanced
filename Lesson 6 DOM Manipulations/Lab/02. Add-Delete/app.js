@@ -11,6 +11,8 @@ function addItem() {
     const aText = document.createTextNode('[Delete]');    
     a.appendChild(aText);
     a.setAttribute("href", "#");
+    //OR a.href = '#';
+
     liToAdd.appendChild(liText);
 
     liToAdd.appendChild(a);
