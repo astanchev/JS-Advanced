@@ -17,3 +17,28 @@ function create(words) {
       e.target.firstElementChild.style.display = 'block';
    }
 }
+
+function create2(words) {
+   const content = document.getElementById('content');
+
+   const resultDivs = words.reduce((result, w) => {
+      let divEl = createDiv(w);
+      result.push(divEl);
+      return result;
+   }, []);
+
+   resultDivs.forEach(d => content.appendChild(d));
+
+   function createDiv(text) {
+      const div = document.createElement('div');
+      const p = document.createElement('p');
+      p.textContent = text;
+      p.style.display = 'none';
+      div.appendChild(p);
+      div.addEventListener('click', (e) => {
+         e.target.firstElementChild.style.display = 'block';
+      });
+
+      return div;
+   }
+}
