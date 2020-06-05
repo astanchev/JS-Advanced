@@ -1,21 +1,18 @@
 function deleteByEmail() {
-    const rows = Array.from(document.getElementsByTagName('tr')).slice(1);
-    const input = document.getElementsByName('email')[0];
-    const inputText = input.value;
+    const input = document.querySelector('input[name="email"]');
     const result = document.getElementById('result');
 
-    const indexToDelete = rows
-        .findIndex(r => r.lastElementChild.textContent === inputText);
+    const rows = [...document.querySelectorAll('tbody > tr > td:last-child')];
 
-    if (indexToDelete > -1) {
-        const row = rows[indexToDelete];
-        const table = row.parentElement;
+    const inputEmail = input.value;
+    const row = rows.find(x => x.textContent === inputEmail);
 
-        table.removeChild(row);
-        result.textContent = 'Deleted';
+    if (row) {
+        row.parentElement.remove();
+        result.textContent = 'Deleted.';
     } else {
         result.textContent = 'Not found.';
     }
-    
+
     input.value = '';
 }
