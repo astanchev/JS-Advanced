@@ -24,3 +24,27 @@ function lockedProfile() {
         }
     }
 }
+
+function lockedProfile2() {
+    [...document.querySelectorAll('button')].forEach(b => b.addEventListener('click', showInfo));
+
+    function showInfo(e) {
+        e.preventDefault();
+
+        const hiddenText = e.target.parentElement.querySelector('[id$=HiddenFields]');
+        const lock = e.target.parentElement.querySelector('input[value="lock"]');
+        const unlock = e.target.parentElement.querySelector('input[value="unlock"]');
+
+        if (lock.checked === true) {
+            return;
+        }
+
+        if (e.target.textContent === 'Hide it') {
+            hiddenText.style.display = 'none';
+            e.target.textContent = 'Show more';
+        } else {
+            hiddenText.style.display = 'block';
+            e.target.textContent = 'Hide it';
+        }
+    }
+}
