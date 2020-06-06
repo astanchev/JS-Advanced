@@ -26,3 +26,46 @@ function encodeAndDecodeMessages() {
         textareaDecode.value = decodedMessage;
     }
 }
+
+function encodeAndDecodeMessages2() {
+    const [messageToEncode, messageToDecode] = [...document.querySelectorAll('textarea')];
+    const [btnToEncode, btnToDecode] = [...document.querySelectorAll('button')];
+    let message = '';
+
+    btnToEncode.addEventListener('click', encode);
+    btnToDecode.addEventListener('click', decode);
+
+    function encode(e) {
+        e.preventDefault();
+
+        if (messageToEncode.value === '') {
+            return;
+        }
+
+        const text = messageToEncode.value;
+
+        for (let i = 0; i < text.length; i++) {
+            message += String.fromCharCode(text.charCodeAt(i) + 1);
+        }
+        messageToDecode.value = message;
+        messageToEncode.value = '';
+        message = '';
+    }
+
+    function decode(e) {
+        e.preventDefault();
+
+        if (messageToDecode.value === '') {
+            return;
+        }
+
+        const text = messageToDecode.value;
+
+        for (let i = 0; i < text.length; i++) {
+            message += String.fromCharCode(text.charCodeAt(i) - 1);
+        }
+
+        messageToDecode.value = message;
+        message = '';
+    }
+}
