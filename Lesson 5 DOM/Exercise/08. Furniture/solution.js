@@ -30,20 +30,15 @@ function solve() {
       [],
       []
     ];
-    const checkedElements = Array.from(document.getElementsByTagName('input')).filter((x) => x.checked);
+
+    const checkedElements = Array
+                            .from(document.querySelectorAll('tbody > tr'))
+                            .filter((x) => x.lastElementChild.firstElementChild.checked);
 
     for (const el of checkedElements) {
-      const inputInfo = Array
-        .from(el.parentElement.parentElement.children)
-        .slice(1, 4);
-
-      let elName = inputInfo[0].textContent.trim();
-      let elPrice = inputInfo[1].textContent.trim();
-      let elFactor = inputInfo[2].textContent.trim();
-
-      furniture.push(elName);
-      price.push(elPrice);
-      decoration.push(elFactor);
+      furniture.push(el.children[1].textContent.trim());
+      price.push(Number(el.children[2].textContent.trim()));
+      decoration.push(Number(el.children[3].textContent.trim()));
     }
 
     const joinedFurniture = furniture.join(', ');
