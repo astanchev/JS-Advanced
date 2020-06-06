@@ -26,3 +26,29 @@ function solve() {
       query.value = '';
    }
 }
+
+function solve2() {
+   const rows = [...document.querySelectorAll('tbody > tr')];
+   const input = document.getElementById('searchField');
+   const btn = document.getElementById('searchBtn');
+
+   btn.addEventListener('click', search);
+
+   function search(e) {
+      e.preventDefault();
+
+      const searchText = input.value;
+      input.value = '';
+      clearClasses();
+
+      rows.forEach(r => {
+         if (r.textContent.includes(searchText)) {
+            r.classList.add('select');
+         }
+      });
+   }
+
+   function clearClasses() {
+      rows.forEach(r => r.classList.remove('select'));
+   }
+}
