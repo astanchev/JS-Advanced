@@ -4,10 +4,12 @@ function solve() {
     const [firstRow, secondRow, thirdRow] = document.querySelectorAll('tbody tr');
     const [checkSudoku, clearSudoku] = document.querySelectorAll('button');
 
-    checkSudoku.addEventListener('click', function () {
-        const firstRowInputs = Array.from(new Set(Array.from(firstRow.children).map((x) => Number(x.children[0].value))));
-        const secondRowInputs = Array.from(new Set(Array.from(secondRow.children).map((x) => Number(x.children[0].value))));
-        const thirdRowInputs = Array.from(new Set(Array.from(thirdRow.children).map((x) => Number(x.children[0].value))));
+    checkSudoku.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const firstRowInputs = Array.from(new Set(Array.from(firstRow.children).map((x) => Number(x.firstElementChild.value))));
+        const secondRowInputs = Array.from(new Set(Array.from(secondRow.children).map((x) => Number(x.firstElementChild.value))));
+        const thirdRowInputs = Array.from(new Set(Array.from(thirdRow.children).map((x) => Number(x.firstElementChild.value))));
 
         const firstColumn = new Set([firstRowInputs[0], secondRowInputs[0], thirdRowInputs[0]]);
         const secondColumn = new Set([firstRowInputs[1], secondRowInputs[1], thirdRowInputs[1]]);
