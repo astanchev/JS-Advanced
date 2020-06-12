@@ -32,6 +32,28 @@ function solve(...input) {
     }
 }
 
+function solve2() {
+    const result = new Map();
+
+    const argList = [...arguments];
+
+    for (const arg of argList) {
+        const type = typeof(arg);
+
+        console.log(`${type}: ${arg}`);
+
+        if (!result.has(type)) {
+            result.set(type, 0);
+        }
+
+        result.set(type, result.get(type) + 1);
+    }
+
+    const orderedMap = Array.from(result).sort((a, b) => b[1] - a[1]);
+
+    orderedMap.forEach(t => console.log(`${t[0]} = ${t[1]}`));
+}
+
 solve('cat', 42, function () { console.log('Hello world!'); });
 console.log();
 solve({ name: 'bob'}, 3.333, 9.999);
