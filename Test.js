@@ -1,5 +1,4 @@
-function solve() {
+function solution() {
     
 }
 
-console.log(solve());
