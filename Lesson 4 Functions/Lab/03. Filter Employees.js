@@ -25,6 +25,26 @@ function solve(data, criteria) {
     }
 }
 
+function solve2(data, criteria) {
+    let criteriaName = '';
+    let criteriaValue = '';
+    const employees = JSON.parse(data);
+
+    if (criteria === 'all') {
+        employees.forEach((e, i) => print(e, i));
+    } else {
+        [criteriaName, criteriaValue] = criteria.split('-');
+
+        employees
+            .filter(e => e[criteriaName] === criteriaValue)
+            .forEach((e, i) => print(e, i));
+    }
+
+    function print(emp, i){
+        console.log(`${i}. ${emp.first_name + ' ' + emp.last_name} - ${emp.email}`);
+    }
+}
+
 console.log(solve(`[{
     "id": "1",
     "first_name": "Ardine",
