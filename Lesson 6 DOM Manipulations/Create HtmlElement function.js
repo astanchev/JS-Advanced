@@ -1,3 +1,11 @@
+//attributes is an object with keys- atts name, and values atts values
+// EXAMPLE:
+// {
+    // className: '...',
+    // id: '...',
+    // ...
+// }
+
 function createElement(type, content, attributes) {
     const result = document.createElement(type);
 
