@@ -20,6 +20,11 @@ function pressHouse() {
             if (content.length >= 150) {
                 throw new Error('Short reports content should be less then 150 symbols.');
             }
+            // if there are no get and set
+            // else if (!originalResearch.hasOwnProperty('title') ||
+            // !originalResearch.hasOwnProperty('author')){
+                // throw new Error('The original research should have author and title.');
+            //}
             super(title, content);
             this.originalResearch = originalResearch;
             this.comments = [];
@@ -45,6 +50,7 @@ function pressHouse() {
 
         toString() {
             const result = [
+                super.toString(),
                 `Original Research: ${this.originalResearch.title} by ${this.originalResearch.author}`                
             ];
 
@@ -53,7 +59,7 @@ function pressHouse() {
                 this.comments.forEach(c => result.push(c));
             }
 
-            return super.toString() + `\n` + result.join('\n');
+            return result.join('\n');
         }
     }
 
@@ -79,6 +85,7 @@ function pressHouse() {
 
         toString() {
             const result = [
+                super.toString(),
                 `Book: ${this.book.name}`
             ];
 
@@ -87,7 +94,7 @@ function pressHouse() {
                 this.clients.forEach(c => result.push(`${c.clientName} - ${c.orderDescription}`));
             }
             
-            return super.toString() + `\n` + result.join('\n');
+            return  result.join('\n');
         }
     }
 
