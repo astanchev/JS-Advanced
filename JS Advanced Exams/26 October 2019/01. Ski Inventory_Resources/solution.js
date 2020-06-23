@@ -74,6 +74,8 @@ function solve() {
       for (const li of availableItems) {
          if (!li.firstChild.textContent.toLowerCase().includes(filterText)) {
             li.style.display = 'none';
+         } else {
+            li.style.display = 'block';
          }
       }
    }
