@@ -10,4 +10,15 @@ const arr = [{id: 1, username: 'Ivan'},
 
 const sortedArr = arr.sort(sortMethods['username']);
 
-console.log(sortedArr);
+//console.log(sortedArr);
+
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = arr1.concat(arr2);
+const arr5 = [...arr1, ...arr2];
+
+console.log(arr3);
+console.log();
+console.log(arr5);
