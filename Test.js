@@ -19,6 +19,11 @@ const arr2 = [4, 5, 6];
 const arr3 = arr1.concat(arr2);
 const arr5 = [...arr1, ...arr2];
 
-console.log(arr3);
-console.log();
-console.log(arr5);
+// console.log(arr3);
+// console.log();
+// console.log(arr5);
+
+console.log(Number('five') <= 0);
+console.log(Number('-5') <= 0);
+console.log(Number('5') <= 0);
+
