@@ -77,11 +77,12 @@ function realEstateAgency() {
 				a.appendChild(btnMoveOut);
 
 				resultMessage.textContent = 'Enjoy your new home! :))';
+				return;
 
-			} else {
-				resultMessage.textContent = 'We were unable to find you a home, so sorry :(';
-			}
+			} 
 		}
+
+		resultMessage.textContent = 'We were unable to find you a home, so sorry :(';
 	}
 
 	function clearFindInputs() {
